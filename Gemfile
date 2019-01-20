@@ -16,7 +16,6 @@ gem 'devise'
 gem 'authority'
 gem 'rolify'
 gem 'cancancan'
-gem 'ffmpeg'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
