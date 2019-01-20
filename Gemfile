@@ -8,14 +8,15 @@ gem "bulma-rails"
 gem "carrierwave"
 gem "simple_form"
 gem "mini_magick"
-gem "impressionist"
 gem "jquery-rails"
 gem "gravatar_image_tag"
 gem "acts_as_votable"
 gem 'devise'
 gem 'authority'
-gem 'rolify'
 gem 'cancancan'
+gem 'masonry-rails'
+gem 'rails_12factor', group: :production
+gem 'ffmpeg'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'

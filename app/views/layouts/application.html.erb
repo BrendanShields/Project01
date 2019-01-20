@@ -27,11 +27,11 @@
           </div>
           <div id="navbarMenuHeroC" class="navbar-menu">
             <div class="navbar-end">
-              <a class="navbar-item is-active">
+              <a href="<%= root_path %>"class="navbar-item is-active">
                 Home
               </a>
-              <a class="navbar-item">
-                images
+              <a href="<%= images_path %>" class="navbar-item">
+                Images
               </a>
 
               <% if user_signed_in? %>
