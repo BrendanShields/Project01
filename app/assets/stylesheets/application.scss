@@ -1,0 +1,51 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bulma";
+
+.hero-body{
+  background-image: url('https://66.media.tumblr.com/81cdbff7a1454e0f7c713473f631bcc4/tumblr_oy0ejt3x8R1tj0xmgo1_1280.jpg');
+  background-size: cover;
+}
+.hero.is-success {
+  background-color: rgb(98, 179, 209);
+}
+
+.front-page-title{
+  color: black;
+  border-radius: 10px;
+  margin:0 auto;
+  padding: 15px;
+  height: 100%;
+  min-width: 20vw;
+  max-width: 20vw;
+
+  background: rgb(98, 179, 209);
+}
+.hero.is-success a.navbar-item:hover, .hero.is-success a.navbar-item.is-active, .hero.is-success .navbar-link:hover, .hero.is-success .navbar-link.is-active {
+  background-color: #7fe3cc;
+}
+
+.button.is-success.is-inverted {
+color: #7fe3cc;
+}
+
+.notice {
+  background-color: #7fe3cc;
+}
+
+.alert {
+  background-color: #7fe3cc;
+}
