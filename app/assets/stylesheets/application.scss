@@ -18,6 +18,7 @@
 .hero-body{
   background-image: url('https://66.media.tumblr.com/81cdbff7a1454e0f7c713473f631bcc4/tumblr_oy0ejt3x8R1tj0xmgo1_1280.jpg');
   background-size: cover;
+  background-position: center;
 }
 .hero.is-success {
   background-color: rgb(98, 179, 209);
@@ -29,10 +30,10 @@
   margin:0 auto;
   padding: 15px;
   height: 100%;
-  min-width: 20vw;
-  max-width: 20vw;
+  min-width: 30vw;
+  max-width: 30vw;
 
-  background: rgb(98, 179, 209);
+  background: rgba(98, 179, 209, .8);
 }
 .hero.is-success a.navbar-item:hover, .hero.is-success a.navbar-item.is-active, .hero.is-success .navbar-link:hover, .hero.is-success .navbar-link.is-active {
   background-color: #7fe3cc;
@@ -40,6 +41,13 @@
 
 .button.is-success.is-inverted {
 color: #7fe3cc;
+top: 12px;
+margin-left: 30px;
+margin-right: -70px;
+}
+
+.nav-name {
+  color: #7fe3cc;
 }
 
 .notice {
