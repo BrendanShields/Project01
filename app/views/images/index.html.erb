@@ -1,15 +1,24 @@
-  <% @images.each do |image| %>
-  <div class="box">
-  <article class="media">
-    <div class="media-content">
-      <div class="content">
-        <p>
-          <strong><%= User.first.name %></strong> <small><%= User.first.email %></small>
+<div class="hero-body">
+  <div class="container has-text-centered">
 
-        <a href="/images/<%= image.id %>"> <img src="<%= image.user_image.thumb %>"></a>
-        </p>
+    <div class="grid-container">
+      <% @images.each do |image| %>
+        <div class="box-1">
+          <article class="media">
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <a href="/images/<%= image.id %>">
+                    <img src="<%= image.user_image.thumb %>"></a>
+                    <strong><%= User.first.name %></strong>
+                    <small><%= User.first.email %></small>
+                </p>
+              </div>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
-  <% end %>
-  </article>
+
+  </div>
 </div>

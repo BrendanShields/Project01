@@ -1,3 +1,31 @@
 // Place all the styles related to the images controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+  grid-gap: 0px;
+  padding: 10px;
+  margin: 0 auto;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  font-size: 15px;
+}
+
+.item1 {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  margin-bottom: 15px;
+  height: 40px;
+  line-height: 40px;
+}
+
+.media {
+  border-radius: 0px;
+}
