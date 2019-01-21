@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  
+  acts_as_voter
   rolify :before_add => :before_add_method
 
   def before_add_method(role)
@@ -17,4 +17,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :images
+  has_many :posts
 end
