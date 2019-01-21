@@ -2,7 +2,6 @@ require 'rolify/railtie'
 
 
 require_relative 'boot'
-config.assets.initialize_on_precompile = false
 
 require "rails"
 # Pick the frameworks you want:
@@ -23,6 +22,7 @@ Bundler.require(*Rails.groups)
 
 module TfpApp
   class Application < Rails::Application
+    config.generators.system_tests = nil
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
@@ -33,6 +33,6 @@ module TfpApp
 
     # Don't generate system test files.
 
-    config.generators.system_tests = nil
+
   end
 end
