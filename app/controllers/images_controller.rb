@@ -1,6 +1,6 @@
 class ImagesController < ApplicationController
-  before_action :set_image, only: [:show, :edit, :update, :destroy, :like, :unlike]
-  before_action :authenticate_user!, only: [:edit, :update, :destroy, :like, :unlike]
+  before_action :set_image, only: [:reply, :show, :edit, :update, :destroy, :like, :unlike]
+  before_action :authenticate_user!, only: [:edit, :reply, :update, :destroy, :like, :unlike]
 
   def index
     @images = Image.all.order('created_at DESC')

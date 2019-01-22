@@ -3,7 +3,7 @@
     <article class="media">
       <figure class="media-left">
         <p class="post is-64x64">
-          <img src="https://bulma.io/posts/placeholders/128x128.png">
+          <img src="<% @post.user.user_image %>">
         </p>
       </figure>
       <div class="media-content">
@@ -23,14 +23,13 @@
         <nav class="level is-mobile">
           <div class="level-left">
             <div class="buttons has-addons">
+              <% if current_user == @post.user %>
               <%= link_to 'Edit', edit_post_path(@post), class: "button" %>
               <%= link_to 'Delete', post_path, class: "button", method: :delete, data: { confirm: 'Are you sure you want to delete this post?'} %>
-            </div>
+              <% end %>
+              </div>
           </div>
         </nav>
-      </div>
-      <div class="media-right">
-        <button class="delete"></button>
       </div>
     </article>
 
@@ -38,13 +37,12 @@
     <article class="media">
       <figure class="media-left">
         <p class="post is-64x64">
-          <img src="https://bulma.io/posts/placeholders/128x128.png">
+            <img src="<% @post.user.user_image %>">
         </p>
       </figure>
       <div class="media-content">
         <div class="content">
-          <p>
-            <small><%= User.first.name %></small>
+            <small><%= reply.id %></small>
             <small><%= @post.created_at %></small>
             <br>
             <br>
@@ -52,24 +50,24 @@
             <div>
               <%= reply.text %>
             </div>
-          </p>
         </div>
         <nav class="level is-mobile">
           <div class="level-left">
-            <div class="buttons has-addons">
-            
-            </div>
+            <div class="buttons has-addons"></div>
           </div>
         </nav>
       </div>
       <div class="media-right">
+  
+      <% if current_user == @post.user %>
         <button class="delete"></button>
+      <% end %>
       </div>
     </article>
 
-<% end %>
+  <% end %>
 
-	<%= render 'replyform', reply: @reply %>
+	<%= render 'replies/form', post: @post %>
 
-  </div>
+</div>
 </div>

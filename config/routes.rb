@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :images
 
   resources :posts do
-    resources :replies, module: :posts
+    resources :replies#, module: :posts
   end
 
   devise_for :users, controllers: {registrations: 'registrations'}

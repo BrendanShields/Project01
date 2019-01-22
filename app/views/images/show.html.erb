@@ -22,8 +22,10 @@
         <nav class="level is-mobile">
           <div class="level-left">
             <div class="buttons has-addons">
+            <% if current_user == @image.user %>
               <%= link_to 'Edit', edit_image_path(@image), class: "button" %>
               <%= link_to 'Delete', image_path, class: "button", method: :delete, data: { confirm: 'Are you sure you want to delete this image?'} %>
+            <% end %>
             </div>
           </div>
         </nav>

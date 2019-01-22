@@ -1,0 +1,12 @@
+<li>
+  <%= reply.text %> -
+  <small>Submitted <%= time_ago_in_words(reply.created_at) %> ago</small>
+
+  <%= form_for [@post, Reply.new] do |f| %>
+      <%= f.text_area :text, placeholder: "Add a Reply" %><br/>
+      <%= f.submit "Reply"  %>
+      <% end %>
+
+
+
+</li>

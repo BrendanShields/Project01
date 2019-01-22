@@ -1,19 +1,19 @@
 <div class="hero-body">
   <div class="container has-text-centered">
     <div class="container">
-      <div class="notification">
+      <div class="notification posts">
 
         <% @posts.each do |post| %>
         <article class="media">
           <figure class="media-left">
             <p class="post is-64x64">
-              <img src="https://bulma.io/posts/placeholders/128x128.png">
+              <img src="<% post.user.user_image %>">
             </p>
           </figure>
           <div class="media-content">
             <div class="content">
               <p>
-                <%= link_to post.title, post_path(post.id) %>
+              <%= link_to post.title, post_path(post.id) %>
 
 
                 <hr>
@@ -26,9 +26,6 @@
                 </div>
               </p>
             </div>
-          </div>
-          <div class="media-right">
-            <button class="delete"></button>
           </div>
         </article>
         <% end %>

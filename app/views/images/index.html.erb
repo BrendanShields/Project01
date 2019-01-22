@@ -2,10 +2,10 @@
   <div class="container has-text-centered">
 
     <div class="grid-container">
-    <div class="grid-item item1">
-    FEATURED COLLABORATIONS
+      <div class="grid-item item1">
+        FEATURED COLLABORATIONS
 
-    </div>
+      </div>
       <% @images.each do |image| %>
         <div class="box-1">
           <article class="media">
@@ -14,8 +14,11 @@
                 <p>
                   <a href="/images/<%= image.id %>">
                     <img src="<%= image.user_image.thumb %>"></a>
-                    <strong><%= image.user_id %></strong>
-                    <small><i class="far fa-heart"></i></small>
+                  <strong><%= image.user_id %></strong>
+                  <small>
+                    <i class="far fa-heart"></i>
+                  </small>
+                  
                 </p>
               </div>
             </div>
@@ -24,48 +27,43 @@
       </div>
 
       <div class="grid-item item2">
-      \/
+        \/
       </div>
     </div>
   </div>
 </div>
 
-
-
-
 <div class="container">
   <div class="notification">
 
     <% @posts.each do |post| %>
-    <article class="media">
-      <figure class="media-left">
-        <p class="post is-64x64">
-          <img src="https://bulma.io/posts/placeholders/128x128.png">
-        </p>
-      </figure>
-      <div class="media-content">
-        <div class="content">
-          <p>
-              <%= link_to post.title, post_path(post.id) %>
-            <hr>
-            <small><%= User.first.name %></small>
-            <small><%= post.created_at %></small>
-            <br>
-            <br>
-            <div>
-              <%= post.description %>
-            </div>
+      <article class="media">
+        <figure class="media-left">
+          <p class="post is-64x64">
+            <img src="https://bulma.io/posts/placeholders/128x128.png">
           </p>
+        </figure>
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <%= link_to post.title, post_path(post.id) %>
+              <hr>
+              <small><%= User.first.name %></small>
+              <small><%= post.created_at %></small>
+              <br>
+              <br>
+              <div>
+                <%= post.description %>
+              </div>
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="media-right">
-        <button class="delete"></button>
-      </div>
-    </article>
+        <div class="media-right">
+          <button class="delete"></button>
+        </div>
+      </article>
     <% end %>
-</div>
-
-
-
   </div>
+
+</div>
 </div>
