@@ -1,35 +1,37 @@
 <div class="container">
   <div class="notification">
 
-			<article class="media">
-	  <figure class="media-left">
-	    <p class="image is-64x64">
-	      <img src="https://bulma.io/images/placeholders/128x128.png">
-	    </p>
-	  </figure>
-	  <div class="media-content">
-	    <div class="content">
-	      <p>
-	        <strong><%= User.first.name %></strong> <small><%= User.first.email %></small> <small><%= @image.created_at %></small>
-	        <br>
-					<div class="image-full">
-						 <%= image_tag @image.user_image_url unless @image.user_image.blank? %>
-					</div>
-	      </p>
-	    </div>
-	    <nav class="level is-mobile">
-	      <div class="level-left">
-					<div class="buttons has-addons">
-						<%= link_to 'Edit', edit_image_path(@image), class: "button" %>
-						<%= link_to 'Delete', image_path, class: "button", method: :delete, data: { confirm: 'Are you sure you want to delete this image?'} %>
-					</div>
-	      </div>
-	    </nav>
-	  </div>
-	  <div class="media-right">
-	    <button class="delete"></button>
-	  </div>
-	</article>
+    <article class="media">
+      <figure class="media-left">
+        <p class="image is-64x64">
+          <img src="https://bulma.io/images/placeholders/128x128.png">
+        </p>
+      </figure>
+      <div class="media-content">
+        <div class="content">
+          <p>
+            <strong><%= @image.user.name %></strong>
+            <small><%=  @image.user.email %></small>
+            <small><%=  @image.created_at %></small>
+            <br>
+            <div class="image-full">
+              <%= image_tag @image.user_image_url unless @image.user_image.blank? %>
+            </div>
+          </p>
+        </div>
+        <nav class="level is-mobile">
+          <div class="level-left">
+            <div class="buttons has-addons">
+              <%= link_to 'Edit', edit_image_path(@image), class: "button" %>
+              <%= link_to 'Delete', image_path, class: "button", method: :delete, data: { confirm: 'Are you sure you want to delete this image?'} %>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="media-right">
+        <button class="delete"></button>
+      </div>
+    </article>
 
-	</div>
-	</div>
+  </div>
+</div>
