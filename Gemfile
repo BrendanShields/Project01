@@ -17,6 +17,9 @@ gem 'cancancan'
 gem 'masonry-rails'
 gem 'rails_12factor', group: :production
 gem 'ffmpeg'
+gem "impressionist"
+gem "cloudinary"
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
@@ -66,6 +69,7 @@ group :development do
 gem 'better_errors'
 gem 'guard'
 gem 'guard-livereload'
+gem "rails-erd"
 end
 
 

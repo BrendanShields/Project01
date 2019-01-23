@@ -2,68 +2,53 @@
   <div class="container has-text-centered">
 
     <div class="grid-container">
-      <div class="grid-item item1">
-        FEATURED COLLABORATIONS
 
-      </div>
       <% @images.each do |image| %>
         <div class="box-1">
           <article class="media">
             <div class="media-content">
+              <strong><%= image.user.name %></strong>
+              <%= time_ago_in_words(image.created_at) %>
               <div class="content">
                 <p>
                   <a href="/images/<%= image.id %>">
                     <img src="<%= image.user_image.thumb %>"></a>
-                  <strong><%= image.user_id %></strong>
-                  <small>
+
+
+                    <i class="fa fa-eye"></i>
+                    <%= image.impressionist_count %>
+
+
+                    <% if user_signed_in? %>
+                      <% if current_user.liked? image %>
+                        <%= link_to unlike_image_path(image), method: :put, class: 'unlike_image' do %>
+                          <i class="far fa-heart has-text-primary"></i>
+                          <%= image.get_likes.size %>
+                        <% end %>
+                        <% else %>
+                          <%= link_to like_image_path(image), method: :put, class: 'like_image' do %>
+                          <i class="far fa-heart"></i>
+                          <span class="vote_count"><%= image.get_likes.size %></span>
+                        <% end %>
+                      <% end %>
+                    <% else %>
+
+
+
+                  <%= link_to like_image_path(image), method: :put, class: 'like_image' do %>
+                  <span class="like">
                     <i class="far fa-heart"></i>
-                  </small>
-                  
-                </p>
-              </div>
+                  </span>
+                  <span class="vote_count"><%= shot.get_likes.size %></span>
+                  <% end %>
+                <% end %>
+              </p>
             </div>
           </div>
-        <% end %>
-      </div>
+        </div>
 
-      <div class="grid-item item2">
-        \/
-      </div>
-    </div>
-  </div>
+  <% end %>
 </div>
-
-<div class="container">
-  <div class="notification">
-
-    <% @posts.each do |post| %>
-      <article class="media">
-        <figure class="media-left">
-          <p class="post is-64x64">
-            <img src="https://bulma.io/posts/placeholders/128x128.png">
-          </p>
-        </figure>
-        <div class="media-content">
-          <div class="content">
-            <p>
-              <%= link_to post.title, post_path(post.id) %>
-              <hr>
-              <small><%= User.first.name %></small>
-              <small><%= post.created_at %></small>
-              <br>
-              <br>
-              <div>
-                <%= post.description %>
-              </div>
-            </p>
-          </div>
-        </div>
-        <div class="media-right">
-          <button class="delete"></button>
-        </div>
-      </article>
-    <% end %>
-  </div>
-
+</div>
 </div>
 </div>

@@ -57,7 +57,7 @@ var f = ['🌑', '🌘', '🌗', '🌖', '🌕', '🌔', '🌓', '🌒'],
 
     loop();
 
-    
+
 
 function resizeGridItem(item){
   grid = document.getElementsByClassName("grid")[0];

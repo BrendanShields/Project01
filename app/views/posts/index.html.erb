@@ -1,37 +1,17 @@
-<div class="hero-body">
-  <div class="container has-text-centered">
-    <div class="container">
-      <div class="notification posts">
-
-        <% @posts.each do |post| %>
-        <article class="media">
-          <figure class="media-left">
-            <p class="post is-64x64">
-              <img src="<% post.user.user_image %>">
-            </p>
-          </figure>
-          <div class="media-content">
-            <div class="content">
-              <p>
-              <%= link_to post.title, post_path(post.id) %>
 
 
-                <hr>
-                <small><%= User.first.name %></small>
-                <small><%= post.created_at %></small>
-                <br>
-                <br>
-                <div>
-                  <%= post.description %>
-                </div>
-              </p>
-            </div>
-          </div>
-        </article>
-        <% end %>
+<div class="support-grid"></div>
+<% @posts.each do |post| %>
+  <div class="band">
+    <div class="item-1">
+          <a href="/posts/<%= post.id %>" class="card">
+            <div class="thumb" style="background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/flex-1.jpg);"></div>
+            <article>
+              <h1><%= post.title %></h1>
+              <span><%= User.first.name %></span>
+            </article>
+          </a>
     </div>
-
-
-
+<% end %>
   </div>
 </div>

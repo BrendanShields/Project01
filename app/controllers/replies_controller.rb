@@ -2,7 +2,7 @@ class RepliesController < ApplicationController
 
   before_action :find_commentable
   before_action :authenticate_user!, only: [:edit, :reply, :update, :destroy, :like, :unlike]
-
+  impressionist actions: [:show], unique: ['impressionable_type', 'impressionable_id', 'session_hash']
       def new
         @reply = Reply.new
       end

@@ -19,4 +19,6 @@ class User < ApplicationRecord
   has_many :images
   has_many :posts
   has_many :replies
+  has_one :charity
+  has_one :donator
 end

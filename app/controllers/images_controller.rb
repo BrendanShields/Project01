@@ -1,7 +1,7 @@
 class ImagesController < ApplicationController
   before_action :set_image, only: [:reply, :show, :edit, :update, :destroy, :like, :unlike]
   before_action :authenticate_user!, only: [:edit, :reply, :update, :destroy, :like, :unlike]
-
+  impressionist actions: [:show], unique: ['impressionable_type', 'impressionable_id', 'session_hash']
   def index
     @images = Image.all.order('created_at DESC')
     @posts = Post.all.order('created_at')
@@ -24,10 +24,8 @@ class ImagesController < ApplicationController
     respond_to do |format|
       if @image.save
         format.html { redirect_to @image, notice: 'Image was successfully created.' }
-        format.json { render :show, status: :created, location: @image }
       else
         format.html { render :new }
-        format.json { render json: @image.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -36,10 +34,8 @@ class ImagesController < ApplicationController
     respond_to do |format|
       if @image.update(image_params)
         format.html { redirect_to @image, notice: 'Image was successfully updated.' }
-        format.json { render :show, status: :ok, location: @image }
       else
         format.html { render :edit }
-        format.json { render json: @image.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -48,7 +44,6 @@ class ImagesController < ApplicationController
     @image.destroy
     respond_to do |format|
       format.html { redirect_to images_url, notice: 'Image was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
@@ -56,7 +51,6 @@ class ImagesController < ApplicationController
     @image.liked_by current_user
     respond_to do |format|
       format.html { redirect_back fallback_location: root_path }
-      format.json { render layout:false }
     end
   end
 
@@ -64,7 +58,6 @@ class ImagesController < ApplicationController
     @image.unliked_by current_user
     respond_to do |format|
       format.html { redirect_back fallback_location: root_path }
-      format.json { render layout:false }
     end
   end
 
