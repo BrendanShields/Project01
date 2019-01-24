@@ -1,6 +1,8 @@
 <section class="section">
-  <div class="container">
-    Posts
+  <div class="container-1">
+  <h1 class="title">Posts</h1><hr><br><br>
+
+
     <div class="notification">
 
       <% @posts.each do |post| %>
@@ -17,6 +19,7 @@
 
             <p>
               <tit><%= post.user.name %>   </tit><small class="sub">Photographer</small></span>
+              <hr>
 
               <b><a href="posts/<%= post.id %>"><h3><%= post.title %></h3></a></b><br>
             <%=  post.description.truncate(100) %>
@@ -27,14 +30,9 @@
           <nav class="level is-mobile">
             <div class="level-left">
               <a class="level-item">
-                <span class="icon is-small"><i class="fas fa-reply"></i></span>
+                  <a href="posts/<%= post.id %>"><i class="fas fa-comments"><%= post.replies.length %></i></a> &nbsp
               </a>
-              <a class="level-item">
-                <span class="icon is-small"><i class="fas fa-retweet"></i></span>
-              </a>
-              <a class="level-item">
-                <span class="icon is-small"><i class="fas fa-heart"></i></span>
-              </a>
+
             </div>
           </nav>
           </span>

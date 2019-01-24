@@ -1,6 +1,8 @@
+
 <section class="section">
   <div class="container">
-    <h1 class="title">Post</h1>
+<div class="notification">
+    <h1 class="title"><%= @post.title %></h1><hr><br>
 
 
 <article class="media">
@@ -12,11 +14,11 @@
   <div class="media-content">
     <div class="content">
       <p>
-        <strong><%= @post.user.name %></strong>
+        <strong><%= @post.user.name %></strong> &nbsp <small><%= time_ago_in_words(@post.created_at) %></small>
         <br>
         <%= @post.description %>
         <br>
-        <small><a>Like</a> · <a>Reply</a> · 3 hrs</small>
+
         <% if current_user == @post.user %>
         <br><br>
         <%= link_to 'Edit', edit_post_path(@post), class: "button" %>
@@ -34,16 +36,17 @@
       </figure>
       <div class="media-content">
         <div class="content">
-            <small><%= reply.id %></small>
-            <small><%= @post.created_at %></small>
-            <br>
-            <br>
+            <b><%= reply.user.name %></b> &nbsp
+            <small><%= time_ago_in_words(@post.created_at) %></small>
+        <br>
+
 
             <div>
               <%= reply.text %>
 
             </div>
         </div>
+<br>
         <nav class="level is-mobile">
           <div class="level-left">
             <div class="buttons has-addons"></div>
@@ -53,15 +56,16 @@
       <div class="media-right">
       <% if current_user == reply.user %>
       <%= link_to 'Delete', post_reply_path(@post, reply), class: "button", method: :delete, data: { confirm: 'Are you sure you want to delete this post?'} %>
+
       <% end %>
       </div>
     </article>
   <% end %>
 
   <hr>
-
+<br>
 	<%= render 'replies/form', post: @post %>
-
+</div>
 </div>
 </article>
 

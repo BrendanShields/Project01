@@ -26,6 +26,40 @@
 
 @import "bulma";
 
+.hero.is-success .title {
+  color: rgb(145, 145, 145);
+}
+.hero.is-success {
+  color: rgb(71, 71, 71);
+}
+
+.has-text-primary {
+  color: pink;
+}
+
+hr {
+  border-top: 1px solid #ccc;
+  margin-top: 3px;
+  margin-bottom:1px;
+}
+
+card-content {
+  margin: 4px;
+  padding: 4px;
+}
+
+.hero-head {
+  background-color: rgb(51, 51, 51);
+}
+
+.is-rounded {
+  height: 500px;
+  border: 5px solid white;
+}
+.level {
+  background: #7fe3cc;
+}
+
 h3 {
   margin: 0px !important;
 }
@@ -63,12 +97,12 @@ h3 {
 }
 
 .hero.is-success .title .is-5{
-  color: rgb(66, 66, 66) !important;
+  color: rgb(175, 175, 175);
 }
 
 
 .hero.is-success {
-  background-color: rgb(74, 74, 74);
+  background-color: rgb(218, 218, 218);
 }
 
 .front-page-title{
@@ -111,7 +145,9 @@ image is-64x64 {
   padding: 0px;
 }
 
-
+.level {
+  background-color: transparent;
+}
 
 
 
