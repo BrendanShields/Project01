@@ -1,3 +1,8 @@
+
+
+
+
+
 document.addEventListener("turbolinks:load", function() {
 
 	var Images = {

@@ -22,10 +22,29 @@
  */
 
 
-
+@import "animate";
 
 @import "bulma";
 
+.hero-body {
+  background-image: url('https://i.imgur.com/0E8mAV0.jpg');
+  background-position: left;
+  background-size: cover;
+}
+
+.hero.is-success a:not(.button):not(.dropdown-item):not(.tag), .hero.is-success strong {
+  color: rgb(161, 161, 161);
+}
+
+
+.align {
+  margin: 0 auto;
+}
+
+.col8 {
+  position: relative;
+  width: 700px;
+}
 .hero.is-success .title {
   color: rgb(145, 145, 145);
 }
@@ -151,6 +170,41 @@ image is-64x64 {
 
 
 
+#drop_zone {
+	position: relative;
+	padding: 3rem 0;
+	border: 2px dashed #ccc;
+	text-align: center;
+	border-radius: 6px;
+  z-index: 100;
+
+	&.dragging::before {
+		content: "";
+	  position: absolute;
+	  left: 0; width: 100%;
+	  top: 0; height: 100%;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  font-size: 1.5em;
+	  background-color: rgba($primary, .3);
+	  pointer-events: none;
+	  z-index: 99;
+	}
+	&.fire::before {
+		content: "";
+	  position: absolute;
+	  left: 0; width: 100%;
+	  top: 0; height: 100%;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  font-size: 1.5em;
+	  background-color: rgba($green, .3);
+	  pointer-events: none;
+	  z-index: 99;
+	}
+}
 
 #masonry-container {
   background: #FFF;
