@@ -26,8 +26,13 @@
 
 @import "bulma";
 
+
+a.navbar-item:hover {
+
+  background-color: #7fe3cc !important;
+}
 .hero-body {
-  background-image: url('https://i.imgur.com/0E8mAV0.jpg');
+  background-image: url('https://i.imgur.com/OuMiljQ.jpg');
   background-position: left;
   background-size: cover;
 }

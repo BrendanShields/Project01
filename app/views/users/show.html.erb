@@ -1,18 +1,20 @@
-
-
 <nav class="level is-mobile">
   <div class="level-item has-text-centered">
     <div>
       <figure class="image is-128x128">
         <img class="is-rounded" src="<%= @user.images.first.user_image.thumb %>">
-        <tit class="title"><b><%= @user.name %></b></tit>
+        <tit class="title">
+          <b><%= @user.name %></b>
+        </tit>
       </figure>
     </div>
   </div>
   <div class="level-item has-text-centered">
     <div>
       <p class="heading">Total Posts</p>
-      <p class="title"> <%= @user.posts.all.length %> </p>
+      <p class="title">
+        <%= @user.posts.all.length %>
+      </p>
     </div>
   </div>
   <div class="level-item has-text-centered">
@@ -23,8 +25,13 @@
   </div>
   <div class="level-item has-text-centered">
     <div>
-      <p class="heading">Likes</p>
-      <p class="title">789</p>
+      <p class="heading">Total Likes</p>
+      <% count = 0 %>
+      <% @user.images.each do |image| %>
+      <% count += image.get_likes.size %>
+      <% end %>
+      <p class="title"><%= count %></p>
+
     </div>
   </div>
 </nav>
@@ -32,69 +39,76 @@
 <section class="section">
   <div class="container">
 
-
-      <h1 class="title">Your Posts</h1><hr><br>
+    <h1 class="title">Your Posts</h1><hr><br>
     <div class="notification">
 
       <% @user.posts.each do |post| %>
 
-      <article class="media">
-        <figure class="media-left">
-          <p class="image is-64x64">
-            <img src="<%= @user.images.first.user_image.thumb %>">
-          </p>
-        </figure>
-        <div class="media-content">
-          <div class="content">
-            <span class="dark-text">
+        <article class="media">
+          <figure class="media-left">
+            <p class="image is-64x64">
+              <img src="<%= @user.images.first.user_image.thumb %>">
+            </p>
+          </figure>
+          <div class="media-content">
+            <div class="content">
+              <span class="dark-text">
 
-            <p>
-              <tit><%= post.user.name %>   </tit><small class="sub">Photographer</small></span>
+                <p>
+                  <tit><%= post.user.name %>
+                  </tit>
+                  <small class="sub">Photographer</small>
+                </span>
 
-              <b><a href="posts/<%= post.id %>"><h3><%= post.title %></h3></a></b><br>
-            <%=  post.description.truncate(100) %>
-            <br>
-            <small class="sub"><span class="dark-text"><%= post.created_at %></small>
+                <b>
+                  <a href="/posts/<%= post.id %>">
+                    <h3><%= post.title %></h3>
+                  </a>
+                </b><br>
+                <%= post.description.truncate(100) %>
+                <br>
+                <small class="sub">
+                  <span class="dark-text"><%= post.created_at %></small>
 
-          </div>
-          <nav class="level is-mobile">
-            <div class="level-left">
-              <a class="level-item">
-                  <a href="posts/<%= post.id %>"><i class="fas fa-comments"><%= post.replies.length %></i></a> &nbsp
-              </a>
+                </div>
+                <nav class="level is-mobile">
+                  <div class="level-left">
+                    <a class="level-item">
+                      <a href="/posts/<%= post.id %>">
+                        <i class="fas fa-comments"><%= post.replies.length %></i>
+                      </a>
+                      &nbsp
+                    </a>
 
-            </div>
-          </nav>
+                  </div>
+                </nav>
 
+              </div>
+              <div class="media-right"></div>
+            </article>
+
+          <% end %>
         </div>
-        <div class="media-right">
-
-        </div>
-      </article>
-
-      <% end %>
-    </div>
-  </div>
-</section>
-
+      </div>
+    </section>
 
     <section class="section">
       <div class="container-1">
-      <h1 class="title">Your Images</h1><hr>
-      <div class="masonry-container">
+        <h1 class="title">Your Images</h1><hr>
+        <div class="masonry-container">
 
-      <% @user.images.each do |image| %>
+          <% @user.images.each do |image| %>
 
-      <div class="box col3">
-        <div class="card">
-        <div class="card-image">
-      <figure class="image is-128by128">
-        <a href="/images/<%= image.id %>">
-      <img src="<%= image.user_image.thumb %>" alt="Placeholder image">
-        </a>
-      </figure>
-      </div>
-        <div class="card-content">
+            <div class="box col3">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-128by128">
+                    <a href="/images/<%= image.id %>">
+                      <img src="<%= image.user_image.thumb %>" alt="Placeholder image">
+                    </a>
+                  </figure>
+                </div>
+                <div class="card-content">
                   <div class="media">
 
                     <div class="media-left">
@@ -106,33 +120,26 @@
                       <p class="tit"><%= image.user.name %></p>
                       <p class="sub">Photographer</p>
                     </div>
-                    </div>
-                    <div class="content">
-                    <%= image.description.truncate(50) %><a>@bulmaio</a>.
-                    <a href="#">#css</a> <a href="#">#responsive</a>
+                  </div>
+                  <div class="content">
+                    <%= image.description.truncate(50) %>
+                    <a>@bulmaio</a>.
+                    <a href="#">#css</a>
+                    <a href="#">#responsive</a>
                     <br>
                     <time datetime="2016-1-1"><%= image.created_at %></time>
 
                     <i class="far fa-eye"></i>
                     <%= image.impressionist_count %>
-                    </div>
-                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          <% end %>
+
         </div>
-
-
-
-
-
-
-
-
-
-
-
       </div>
-
-      <% end %>
-
-</div>
-      </div> <!-- /grid container -->
+      <!-- /grid container -->
     </section>
