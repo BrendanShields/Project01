@@ -19,7 +19,8 @@ gem 'rails_12factor', group: :production
 gem 'ffmpeg'
 gem "impressionist"
 gem "cloudinary"
-
+gem 'google-cloud'
+gem 'modernizr-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'

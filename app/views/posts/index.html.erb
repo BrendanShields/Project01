@@ -1,17 +1,50 @@
+<section class="section">
+  <div class="container">
+    Posts
+    <div class="notification">
 
+      <% @posts.each do |post| %>
 
-<div class="support-grid"></div>
-<% @posts.each do |post| %>
-  <div class="band">
-    <div class="item-1">
-          <a href="/posts/<%= post.id %>" class="card">
-            <div class="thumb" style="background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/flex-1.jpg);"></div>
-            <article>
-              <h1><%= post.title %></h1>
-              <span><%= User.first.name %></span>
-            </article>
-          </a>
+      <article class="media">
+        <figure class="media-left">
+          <p class="image is-64x64">
+            <img src="https://bulma.io/images/placeholders/128x128.png">
+          </p>
+        </figure>
+        <div class="media-content">
+          <div class="content">
+            <span class="dark-text">
+
+            <p>
+              <tit><%= post.user.name %>   </tit><small class="sub">Photographer</small></span>
+
+              <b><a href="posts/<%= post.id %>"><h3><%= post.title %></h3></a></b><br>
+            <%=  post.description.truncate(100) %>
+            <br>
+            <small class="sub"><span class="dark-text"><%= post.created_at %></small>
+            </p>
+          </div>
+          <nav class="level is-mobile">
+            <div class="level-left">
+              <a class="level-item">
+                <span class="icon is-small"><i class="fas fa-reply"></i></span>
+              </a>
+              <a class="level-item">
+                <span class="icon is-small"><i class="fas fa-retweet"></i></span>
+              </a>
+              <a class="level-item">
+                <span class="icon is-small"><i class="fas fa-heart"></i></span>
+              </a>
+            </div>
+          </nav>
+          </span>
+        </div>
+        <div class="media-right">
+
+        </div>
+      </article>
+
+      <% end %>
     </div>
-<% end %>
   </div>
-</div>
+</section>

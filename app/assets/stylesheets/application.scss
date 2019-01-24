@@ -26,13 +26,49 @@
 
 @import "bulma";
 
-.hero-body{
-  background-image: url('https://66.media.tumblr.com/81cdbff7a1454e0f7c713473f631bcc4/tumblr_oy0ejt3x8R1tj0xmgo1_1280.jpg');
-  background-size: cover;
-  background-position: center;
+h3 {
+  margin: 0px !important;
 }
+.dark-text {
+  color: rgb(70, 70, 70);
+}
+.box {
+  margin: 2px;
+}
+.section {
+  max-width: 1220px;
+}
+.mason {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  background-color: #3e3e3e;
+}
+
+.tit {
+  font-size: 25px;
+}
+.sub {
+  font-size: 10px;
+}
+
+.media {
+  min-width: 200px;
+}
+
+.section {
+  margin: 0 auto;
+  position: relative;
+  margin: 0 auto;
+  left: 0px !important;
+}
+
+.hero.is-success .title .is-5{
+  color: rgb(66, 66, 66) !important;
+}
+
+
 .hero.is-success {
-  background-color: rgb(98, 179, 209);
+  background-color: rgb(74, 74, 74);
 }
 
 .front-page-title{
@@ -46,7 +82,7 @@
 
   background: rgba(98, 179, 209, .8);
 }
-.hero.is-success a.navbar-item:hover, .hero.is-success a.navbar-item.is-active, .hero.is-success .navbar-link:hover, .hero.is-success .navbar-link.is-active {
+a.navbar-item:hover, .hero.is-success a.navbar-item.is-active, .hero.is-success .navbar-link:hover, .hero.is-success .navbar-link.is-active {
   background-color: #7fe3cc;
 }
 
@@ -69,134 +105,72 @@ margin-right: -70px;
   background-color: #7fe3cc;
 }
 
-.box-1 {
-  width: 1fr;
-  margin: 2px;
-  padding: 3px;
-  background-color: white;
-  color: black;
-}
 
 image is-64x64 {
   margin: 0px;
   padding: 0px;
 }
 
-.section {
-  background-color: #7fe3cc;
-  border-radius: 12px;
+
+
+
+
+
+#masonry-container {
+  background: #FFF;
+  padding: 5px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  clear: both;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+}
+
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+
+.transitions-enabled.masonry,
+.transitions-enabled.masonry .masonry-brick {
+  -webkit-transition-duration: 0.7s;
+     -moz-transition-duration: 0.7s;
+      -ms-transition-duration: 0.7s;
+       -o-transition-duration: 0.7s;
+          transition-duration: 0.7s;
+}
+
+.transitions-enabled.masonry {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+      -ms-transition-property: height, width;
+       -o-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.transitions-enabled.masonry  .masonry-brick {
+  -webkit-transition-property: left, right, top;
+     -moz-transition-property: left, right, top;
+      -ms-transition-property: left, right, top;
+       -o-transition-property: left, right, top;
+          transition-property: left, right, top;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-html {
-  background: #f5f7f8;
-  font-family: 'Roboto', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  padding: 20px 0;
+/* disable transitions on container */
+.transitions-enabled.infinite-scroll.masonry {
+  -webkit-transition-property: none;
+     -moz-transition-property: none;
+      -ms-transition-property: none;
+       -o-transition-property: none;
+          transition-property: none;
 }
 
-.band {
-  width: 90%;
-  max-width: 1240px;
+.container .has-text-centered {
   margin: 0 auto;
-
-  display: grid;
-
-  grid-template-columns: 1fr;
-  grid-template-rows: auto;
-  grid-gap: 20px;
-
+  text-align:center;
 }
 
-@media only screen and (min-width: 500px) {
-  .band {
-    grid-template-columns: 1fr 1fr;
-  }
-  .item-1 {
-  grid-column: 1/ span 2;
-  }
-  .item-1 h1 {
-    font-size: 30px;
-  }
-}
-
-@media only screen and (min-width: 850px) {
-  .band {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-}
-
-/* card */
-
-.card {
-  min-height: 100%;
-  background: white;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  color: #444;
-  position: relative;
-  top: 0;
-  transition: all .1s ease-in;
-}
-
-.card:hover {
-  top: -2px;
-  box-shadow: 0 4px 5px rgba(0,0,0,0.2);
-}
-
-.card article {
-  padding: 20px;
-  display: flex;
-
-  flex: 1;
-  justify-content: space-between;
-  flex-direction: column;
-
-}
-.card .thumb {
-  padding-bottom: 60%;
-  background-size: cover;
-  background-position: center center;
-}
-
-.card p {
-  flex: 1; /* make p grow to fill available space*/
-  line-height: 1.4;
-}
-
-/* typography */
-h1 {
-  font-size: 20px;
-  margin: 0;
-  color: #333;
-}
-
-.card span {
-  font-size: 12px;
-  font-weight: bold;
-  color: #999;
-  text-transform: uppercase;
-  letter-spacing: .05em;
-  margin: 2em 0 0 0;
+.card .media-content {
+  color: rgb(57, 57, 57);
 }
