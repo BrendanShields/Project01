@@ -27,12 +27,18 @@
 
 
 
-var f = ['🕐','🕑','🕒','🕓','🕔','🕕','🕖','🕗','🕘','🕙','🕚','🕛'];
-
 function loop() {
-     location.hash = f[Math.floor((Date.now()/100)%f.length)];
+        var i, n, s = '';
 
-     setTimeout(loop, 50);
- }
+        for (i = 0; i < 10; i++) {
+            n = Math.floor(Math.sin((Date.now()/200) + (i/2)) * 4) + 4;
 
- loop();
+            s += String.fromCharCode(0x2581 + n);
+        }
+
+        window.location.hash = s;
+
+        setTimeout(loop, 50);
+    }
+
+    loop();
