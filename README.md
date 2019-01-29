@@ -1,6 +1,6 @@
 # README
 
-# Project 0 - A game of Tic Tac Toe.
+# Project01 TFP-APP.
 
 For this project I have created Budgetgram, instagram but less, built on ruby on rails with jquery, bulma, and animate css.
 
